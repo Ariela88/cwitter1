@@ -1,13 +1,28 @@
-<header>
-  <span>cwitetr</span>
 
-  <div>
-    <button *ngIf="user" (click)="logout()">logout</button>
+<mat-toolbar>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Cwitter</span>
+  <span class="example-spacer"></span>
+
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Ricerca</mat-label>
+      <input type="search" placeholder="cerca un cwit">
 
 
-    <div *ngIf="!user">
-      <button routerLink = "/login">login</button>
-      <button>register</button>
-    </div>
-  </div>
-</header>
+
+    </mat-form-field>
+  </form>
+
+  <button mat-icon-button class="example-icon favorite-icon" *ngIf="user" (click)="logout()">
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button mat-icon-button class="example-icon" routerLink = "/login" *ngIf="!user">
+    <mat-icon>person</mat-icon>
+  </button>
+  <button mat-icon-button class="example-icon" routerLink = "/register" *ngIf="!user">
+    <mat-icon>person_add</mat-icon>
+  </button>
+</mat-toolbar>
