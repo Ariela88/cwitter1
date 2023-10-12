@@ -30,6 +30,7 @@ import {MatMenuModule} from '@angular/material/menu';
 })
 export class HeaderComponent {
   user: User | null = null;
+  searchTerm: string = '';
 
 
   constructor(private authServ: AuthService){
@@ -43,5 +44,10 @@ export class HeaderComponent {
   logout(){
     this.authServ.logOut()
 
+  }
+
+  searchCwit() {
+   
+    
   }
 }

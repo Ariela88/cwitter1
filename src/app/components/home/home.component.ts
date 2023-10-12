@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FirestoreService } from 'src/app/services/firestore.service';
 import { Cwit } from 'src/app/model/cwit';
+import { CwitCardComponent } from '../cwit-card/cwit-card.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,CwitCardComponent],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })

@@ -1,4 +1,5 @@
 
-<ul>
-  <li *ngFor="let cwit of cwits">{{cwit.text}}</li>
-<ul>
+<div class="cwit-container">
+    <app-cwit-card *ngFor="let cwit of cwits" [cwit]="cwit"></app-cwit-card> 
+ 
+  </div>
