@@ -1,4 +1,5 @@
 export interface OurUser {
+  cwitIds: any;
 
   username: string;
   email:string;

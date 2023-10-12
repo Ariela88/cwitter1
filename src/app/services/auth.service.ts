@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { FireappService } from './fireapp.service';
-import { Auth, User, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { Auth, User, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { OurUser } from '../model/our-user';
 import { FirestoreService } from './firestore.service';
 import { BehaviorSubject } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root',
@@ -35,6 +36,8 @@ export class AuthService {
 
       }
     });
+
+    
   }
 
   registerUser(newUser: OurUser, email: string, psw:string) {
@@ -44,6 +47,7 @@ export class AuthService {
         const user = userCredential.user;
         this.firestore.postOurUser(newUser, user.uid).then(() => {
           this.ourUser.next(newUser);
+          console.log(newUser)
         })
 
       })
@@ -77,9 +81,22 @@ export class AuthService {
     });
   }
 
+  resetEmail(email: string) {
+    sendPasswordResetEmail(this.auth, email)
+      .then(() => {
+        // Email di reset password inviata con successo!
+        console.log('Email di reset password inviata con successo!');
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.error('Errore durante l\'invio dell\'email di reset password:', errorCode, errorMessage);
+      });
+  }
 
-
-
-
+  
+  
 
 }
+
+

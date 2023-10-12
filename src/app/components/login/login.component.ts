@@ -35,6 +35,10 @@ export class LoginComponent {
     this.router.navigateByUrl('/secret')
   }
 
+  resetPass(){
+    this.authServ.resetEmail(this.loginForm.value.email!)
+  }
+  
 
 
 

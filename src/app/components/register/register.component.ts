@@ -31,7 +31,8 @@ export class RegisterComponent {
     country: [''],
     yob: [2023, [Validators.required, CustomValidator.checkNotMinor()]],
     gender: [''],
-    url: ['']
+    url: [''],
+    cwitIds:['']
   })
 
   constructor(private fb: FormBuilder, private authServ: AuthService){};
@@ -52,6 +53,7 @@ export class RegisterComponent {
       country: this.registerForm.value.country!,
       url: this.registerForm.value.url!,
       gender: this.registerForm.value.gender!,
+      cwitIds: this.registerForm.value.cwitIds!
     }
 
 

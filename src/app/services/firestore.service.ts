@@ -15,6 +15,7 @@ export class FirestoreService {
 
   constructor(private fireApp: FireappService) {
     this.db = getFirestore(this.fireApp.app)
+    
   }
 
   getCwits() {
@@ -33,6 +34,7 @@ export class FirestoreService {
 
   }
 
+  
   // initDb(app: any){
   //   this.db = getFirestore(app);
   // }
@@ -49,6 +51,7 @@ export class FirestoreService {
   getOurUser(uid: string){
 
     const docUrl = doc(this.db, 'user', uid);
+    console.log(docUrl)
     return getDoc(docUrl);
 
   }
