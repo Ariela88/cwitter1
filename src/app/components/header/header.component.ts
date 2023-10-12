@@ -18,12 +18,13 @@ import {ErrorStateMatcher} from '@angular/material/core';
 import {NgIf} from '@angular/common';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatMenuModule} from '@angular/material/menu';
 
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, RouterModule, MatButtonModule, MatIconModule, MatToolbarModule, FormsModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule, NgIf],
+  imports: [CommonModule, RouterModule, MatButtonModule, MatMenuModule, MatIconModule, MatToolbarModule, FormsModule, MatFormFieldModule, MatInputModule, ReactiveFormsModule, NgIf],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })

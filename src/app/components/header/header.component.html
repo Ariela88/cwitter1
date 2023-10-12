@@ -1,19 +1,22 @@
 
 <mat-toolbar>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span>Cwitter</span>
+  <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+  <mat-menu #menu="matMenu">
+  <button mat-menu-item routerLink="/login">Login</button>
+  <button mat-menu-item routerLink="/register">Register</button>
+  <button mat-menu-item routerLink="/user">Pagina Utente</button>
+</mat-menu>
+  <span routerLink="/home" class="home">Cwitter</span>
   <span class="example-spacer"></span>
 
   <form class="example-form">
-    <mat-form-field class="example-full-width">
+
       <mat-label>Ricerca</mat-label>
       <input type="search" placeholder="cerca un cwit">
 
 
 
-    </mat-form-field>
+
   </form>
 
   <button mat-icon-button class="example-icon favorite-icon" *ngIf="user" (click)="logout()">
