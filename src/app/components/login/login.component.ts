@@ -32,13 +32,13 @@ export class LoginComponent {
     const psw = this.loginForm.value.psw;
 
     this.authServ.login(email!, psw!)
-    this.router.navigateByUrl('/secret')
+
   }
 
   resetPass(){
     this.authServ.resetEmail(this.loginForm.value.email!)
   }
-  
+
 
 
 

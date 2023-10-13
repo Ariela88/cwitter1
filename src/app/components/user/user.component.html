@@ -1,5 +1,5 @@
 <div *ngIf="user">
-    
+
 
 
 <mat-card class="example-card">
@@ -25,3 +25,13 @@
 
   </mat-card>
 </div>
+<button (click)="togglePostForm()">Aggiungi un cwit</button>
+
+<ng-container *ngIf="postFormVisible">
+  <ng-template #postCwit>
+    <form [formGroup]="postCwitForm" (ngSubmit)="onSubmit()">
+      <input formControlName="content" type="text" placeholder="Inserisci il tuo cwit">
+      <button type="submit">Invia</button>
+    </form>
+  </ng-template>
+</ng-container>

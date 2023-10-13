@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FirebaseApp } from 'firebase/app';
-import { Firestore, collection, doc, getDoc, getDocs, getFirestore, setDoc } from "firebase/firestore";
+import { Firestore, addDoc, collection, doc, getDoc, getDocs, getFirestore, setDoc } from "firebase/firestore";
 import { FireappService } from './fireapp.service';
 import { OurUser } from '../model/our-user';
 
@@ -11,11 +11,12 @@ import { OurUser } from '../model/our-user';
 export class FirestoreService {
 
 
+
   db: Firestore;
 
   constructor(private fireApp: FireappService) {
     this.db = getFirestore(this.fireApp.app)
-    
+
   }
 
   getCwits() {
@@ -34,7 +35,7 @@ export class FirestoreService {
 
   }
 
-  
+
   // initDb(app: any){
   //   this.db = getFirestore(app);
   // }
@@ -55,6 +56,15 @@ export class FirestoreService {
     return getDoc(docUrl);
 
   }
+
+  loadUserCwits(uid: string) {
+    const docUrl = doc(this.db, 'user', uid);
+    console.log(docUrl)
+    return getDoc(docUrl);
+  }
+
+
+
 
 }
 
